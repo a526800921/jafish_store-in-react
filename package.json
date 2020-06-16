@@ -1,0 +1,37 @@
+{
+  "name": "@jafish/store-in-react",
+  "version": "0.0.4",
+  "description": "m-store在React下的扩展",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup --config ./rollup.config.js",
+    "build:babel": "babel src/index.ts --out-dir dist",
+    "build:ts": "tsc"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-react-jsx": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "rollup": "^2.15.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a526800921/jafish_store-in-react.git"
+  },
+  "dependencies": {
+    "@jafish/m-store": "^1.0.4",
+    "@types/react": "^16.9.36",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
