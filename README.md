@@ -62,11 +62,21 @@ const Node1 = useStore(
   [store, state => ({
     test2: state.test,
   })],
-)(
-  ({ test, test2 }) => (
-      <div onClick={addTest}>{test} {test2}</div>
-  )
-)
+)(class extends Component {
+  async componentDidMount() {
+    console.log(this.props)
+    
+    await addTest()
+    // 通过 await ，可以立即拿到变更后的 state
+    console.log(this.props)
+  }
+
+  render() {
+    const { test, test2 } = this.props
+
+    return <div onClick={addTest}>{test} {test2}</div>
+  }
+})
 ```
 
 > useStoreInHook(store, getState): () => state
