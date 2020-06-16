@@ -1,6 +1,6 @@
 {
   "name": "@jafish/store-in-react",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "m-store在React下的扩展",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
