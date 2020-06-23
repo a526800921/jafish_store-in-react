@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@jafish/store-in-react)](https://www.npmjs.com/package/@jafish/store-in-react)
 
-m-store在react下的扩展，提供同步数据的api
+[m-store](https://github.com/a526800921/jafish_m-store)在react下的扩展，提供同步数据的api
 
 ### 使用
 
