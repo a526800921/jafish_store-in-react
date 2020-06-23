@@ -1,4 +1,4 @@
-# jafish_store-in-react
+# @jafish/store-in-react
 
 [![npm](https://img.shields.io/npm/v/@jafish/store-in-react)](https://www.npmjs.com/package/@jafish/store-in-react)
 
