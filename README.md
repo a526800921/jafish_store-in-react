@@ -35,12 +35,12 @@ const Node1 = useStore(
 )
 
 // HOOK的方式
-const testStorer = useStoreInHook(store, state => ({
+const useTestStore = useStoreInHook(store, state => ({
   test: state.test,
 }))
 
 const Node2 = () => {
-  const { test }  = testStorer()
+  const { test }  = useTestStore()
 
   return <div>{test}</div>
 }
@@ -87,17 +87,17 @@ const Node1 = useStore(
 
 ```js
 // HOOK的方式
-const testStorer = useStoreInHook(store, state => ({
+const useTestStore = useStoreInHook(store, state => ({
   test: state.test,
 }))
 
-const testStorer2 = useStoreInHook(store, state => ({
+const useTestStore2 = useStoreInHook(store, state => ({
   test: state.test,
 }))
 
 const Node2 = () => {
-  const { test }  = testStorer()
-  const testStore2 = testStorer2()
+  const { test }  = useTestStore()
+  const testStore2 = useTestStore2()
 
   return <div>{test} {testStore2.test}</div>
 }
@@ -136,12 +136,12 @@ import React from 'react'
 import { useStore, useStoreInHook } from '@jafish/store-in-react'
 import { store as TestStore, addTest } from './store'
 
-const testStorer = useStoreInHook(TestStore, state => ({
+const useTestStore = useStoreInHook(TestStore, state => ({
     test: state.test
 }))
 
 const Add = () => {
-    const { test } = testStorer()
+    const { test } = useTestStore()
 
     return <div>{test}</div>
 }
