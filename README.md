@@ -8,7 +8,7 @@
 
 ```js
 import MStore from '@jafish/m-store'
-import { useStore, useStoreInHook } from '@jafish/store-in-react'
+import { createStorer, createStorerInHook } from '@jafish/store-in-react'
 
 const store = new MStore({
   test: 1,
@@ -18,7 +18,7 @@ const store = new MStore({
 const addTest = () => store.set(state => ({ test: state.test + 1 }))
 
 // 囊括组件的方式
-const Node1 = useStore(
+const Node1 = createStorer(
   [store, state => ({
     test: state.test,
   })],
@@ -35,7 +35,7 @@ const Node1 = useStore(
 )
 
 // HOOK的方式
-const useTestStore = useStoreInHook(store, state => ({
+const useTestStore = createStorerInHook(store, state => ({
   test: state.test,
 }))
 
@@ -48,14 +48,14 @@ const Node2 = () => {
 
 ### API
 
-> useStore([store, getState], ...)(Node)
+> createStorer([store, getState], ...)(Node)
 
 第一个函数接收多个参数，参数格式一致：[store实例， 获取状态的回调]
 
 返回的函数接收一个返回状态的组件，可以是函数式组件，可以是类组件
 
 ```js
-const Node1 = useStore(
+const Node1 = createStorer(
   [store, state => ({
     test: state.test,
   })],
@@ -79,7 +79,7 @@ const Node1 = useStore(
 })
 ```
 
-> useStoreInHook(store, getState): () => state
+> createStorerInHook(store, getState): () => state
 
 该方法仅可用在函数式组件，内部使用了 useState useEffect。
 
@@ -87,11 +87,11 @@ const Node1 = useStore(
 
 ```js
 // HOOK的方式
-const useTestStore = useStoreInHook(store, state => ({
+const useTestStore = createStorerInHook(store, state => ({
   test: state.test,
 }))
 
-const useTestStore2 = useStoreInHook(store, state => ({
+const useTestStore2 = createStorerInHook(store, state => ({
   test: state.test,
 }))
 
@@ -133,10 +133,10 @@ export const addTest = async () => {
 
 ```js
 import React from 'react'
-import { useStore, useStoreInHook } from '@jafish/store-in-react'
+import { createStorer, createStorerInHook } from '@jafish/store-in-react'
 import { store as TestStore, addTest } from './store'
 
-const useTestStore = useStoreInHook(TestStore, state => ({
+const useTestStore = createStorerInHook(TestStore, state => ({
     test: state.test
 }))
 
@@ -156,4 +156,15 @@ export default function App() {
 }
 ```
 
+### 更新
+
+> 2.0.0
+
+将 react 版本提升到 17
+
+将 useStore 改为 createStorer
+
+将 useStoreInHook 改为 createStorerInHook
+
+规避 hook 的规则验证
 
